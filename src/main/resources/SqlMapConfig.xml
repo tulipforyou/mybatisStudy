@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    引用配置文件配置数据库连接信息-->
+    <properties resource="db.properties">
+    </properties>
+<!--    配置别名     type指定实体类全限定类名　　alias指定别名，不区分大小写　-->
+    <typeAliases>
+<!--        <typeAlias type="hfut.sch.bean.UserForMybatis" alias="ufm"/>-->
+<!--        用于指定要配置别名的包，该包下会自动配置每个的别名，类名就是别名-->
+        <package name="hfut.sch.bean"/>
+    </typeAliases>
+    <!--配置环境-->
+    <environments default="development">
+        <!--        数据库环境配置-->
+        <environment id="development">
+            <!--            配置事务类型-->
+            <transactionManager type="JDBC"/>
+            <!--            配置数据源（连接池）-->
+            <dataSource type="POOLED">
+                <!--                连接数据库的四个基本信息-->
+                <property name="driver" value="${mybatis.driver}"/>
+                <property name="url" value="${mybatis.url}"/>
+                <property name="username" value="${mybatis.username}"/>
+                <property name="password" value="${mybatis.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--    指定映射配置文件的位置，每一个dao的独立配置-->
+    <mappers>
+                <mapper resource="hfut/sch/dao/IUserForMybatis.xml"/>
+        <!--        注解方式-->
+<!--        <package name="hfut.sch.dao"/>-->
+    </mappers>
+</configuration>
