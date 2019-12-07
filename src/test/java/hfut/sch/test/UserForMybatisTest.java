@@ -159,4 +159,9 @@ public class UserForMybatisTest {
         ufm.setSex("女");
         zt.insertToUserForMybatis(ufm);
     }
+    @Test
+    public void test12(){
+        int id=26;
+        zt.deleteFromUserForMybatis(id);
+    }
 }

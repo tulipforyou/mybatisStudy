@@ -9,6 +9,7 @@ package hfut.sch.dao;
 */
 
 import hfut.sch.bean.UserForMybatis;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -28,6 +29,6 @@ public interface IZhujieTest {
     /*
     * 注解开发delete语句测试
     * */
-    @Delete("delete from UserForMybatis where userName=#{userName}")
-    void deleteFromUserForMybatis(String userName);
+    @Delete("delete from UserForMybatis where id=#{id}")
+    void deleteFromUserForMybatis(int id);
 }
