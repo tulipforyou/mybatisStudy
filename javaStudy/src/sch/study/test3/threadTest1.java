@@ -5,7 +5,6 @@ package sch.study.test3;
 @packName sch.study.test3
 @sys sunchaohui
 @project mybatiStudy
-
 线程学习
 
 */
@@ -104,6 +103,5 @@ public class threadTest1{
         new Thread(t,"thread02").start();
         new Thread(t,"thread03").start();
 
-        System.out.println("main Thread end.......");
     }
 }
