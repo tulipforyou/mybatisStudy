@@ -30,8 +30,8 @@
     </environments>
     <!--    指定映射配置文件的位置，每一个dao的独立配置-->
     <mappers>
-                <mapper resource="hfut/sch/dao/IUserForMybatis.xml"/>
+<!--                <mapper resource="hfut/sch/dao/IUserForMybatis.xml"/>-->
         <!--        注解方式-->
-<!--        <package name="hfut.sch.dao"/>-->
+        <package name="hfut.sch.dao"/>
     </mappers>
 </configuration>
