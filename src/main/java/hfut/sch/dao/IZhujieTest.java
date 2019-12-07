@@ -25,4 +25,9 @@ public interface IZhujieTest {
     * */
     @Insert("insert into UserForMybatis(userName,age,sex) values(#{userName},#{age},#{sex})")
     void insertToUserForMybatis(UserForMybatis ufm);
+    /*
+    * 注解开发delete语句测试
+    * */
+    @Delete("delete from UserForMybatis where userName=#{userName}")
+    void deleteFromUserForMybatis(String userName);
 }
