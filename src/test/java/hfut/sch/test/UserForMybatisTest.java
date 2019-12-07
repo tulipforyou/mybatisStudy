@@ -4,6 +4,7 @@ import hfut.sch.bean.UserForMybatis;
 import hfut.sch.bean.UserVo;
 import hfut.sch.bean.foreachCollection;
 import hfut.sch.dao.IUserForMybatis;
+import hfut.sch.dao.IZhujieTest;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -21,6 +22,7 @@ public class UserForMybatisTest {
     private InputStream in;
     private SqlSession session;
     private IUserForMybatis ufm;
+    private IZhujieTest zt;
     @Before  //测试方法调用前执行
     public void init() throws IOException {
         //无需写dao实现类
@@ -32,6 +34,7 @@ public class UserForMybatisTest {
         session=factory.openSession();
         //4.使用代理对象执行方法
         ufm=session.getMapper(IUserForMybatis.class);
+        zt=session.getMapper(IZhujieTest.class);
     }
     @After    //测试方法结束后执行
     public void destroy() throws IOException {
@@ -140,5 +143,20 @@ public class UserForMybatisTest {
         foreachCollection fc=new foreachCollection();
         fc.setIdList(idList);
         ufm.deleteUsers(fc);
+    }
+    @Test
+    public void test10(){
+        List<UserForMybatis> list=zt.findAll();
+        for(UserForMybatis ufm:list){
+            System.out.println(ufm);
+        }
+    }
+    @Test
+    public void test11(){
+        UserForMybatis ufm=new UserForMybatis();
+        ufm.setUserName("孙尚香");
+        ufm.setAge(66);
+        ufm.setSex("女");
+        zt.insertToUserForMybatis(ufm);
     }
 }
